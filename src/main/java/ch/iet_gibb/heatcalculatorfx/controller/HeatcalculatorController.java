@@ -1,7 +1,7 @@
 package ch.iet_gibb.heatcalculatorfx.controller;
 
+import ch.iet_gibb.heatcalculatorfx.model.ControllerViewInterface;
 import ch.iet_gibb.heatcalculatorfx.model.SuperTank;
-import ch.iet_gibb.heatcalculatorfx.view.HeatcalculatorView;
 import javafx.event.ActionEvent;
 import java.util.List;
 
@@ -9,14 +9,14 @@ public class HeatcalculatorController implements javafx.event.EventHandler<Actio
 
 
     protected List<SuperTank> models;
-    protected HeatcalculatorView view;
+    protected ControllerViewInterface view;
     protected int currentTank =0;
 
     public HeatcalculatorController(List<SuperTank> models) {
         this.models = models;
     }
 
-    public void setView(HeatcalculatorView view){
+    public void setView(ControllerViewInterface view){
         this.view=view;
     }
 

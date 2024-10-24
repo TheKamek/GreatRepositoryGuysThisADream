@@ -1,6 +1,7 @@
 package ch.iet_gibb.heatcalculatorfx.view;
 
 import ch.iet_gibb.heatcalculatorfx.controller.HeatcalculatorController;
+import ch.iet_gibb.heatcalculatorfx.model.ControllerViewInterface;
 import ch.iet_gibb.heatcalculatorfx.model.InterfaceTank;
 import ch.iet_gibb.heatcalculatorfx.Property.Property;
 import javafx.geometry.Insets;
@@ -16,7 +17,7 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-public class HeatcalculatorView {
+public class HeatcalculatorView implements ControllerViewInterface {
     protected Stage stage;
 
     protected HeatcalculatorController controller;
@@ -27,6 +28,7 @@ public class HeatcalculatorView {
         this.controller = controller;
     }
 
+    @Override
     public void startView(InterfaceTank data) {
         VBox layout = new VBox();
         layout.setPadding(new Insets(15, 15, 15, 15));
@@ -39,6 +41,7 @@ public class HeatcalculatorView {
         TilePane propertiesPane = new TilePane();
         propertiesPane.setPrefColumns(2);
         propertiesPane.setMaxWidth(Region.USE_PREF_SIZE);
+        propertiesPane.setMaxHeight(100);
         for(Property property :data.getProperties()){
             addPropertyToPane(property, propertiesPane);
         }
