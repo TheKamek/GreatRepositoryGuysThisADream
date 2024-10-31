@@ -5,6 +5,7 @@ import ch.iet_gibb.heatcalculatorfx.model.CylinderTank;
 import ch.iet_gibb.heatcalculatorfx.model.SquaredTank;
 import ch.iet_gibb.heatcalculatorfx.model.SuperTank;
 import ch.iet_gibb.heatcalculatorfx.model.UnknownTank;
+import ch.iet_gibb.heatcalculatorfx.view.AlternativeHeatView;
 import ch.iet_gibb.heatcalculatorfx.view.HeatcalculatorView;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -17,7 +18,11 @@ public class HeatcalculatorFX extends Application {
     public void start(Stage stage) throws Exception {
         List<SuperTank> models = createModels();
         HeatcalculatorController controller = new HeatcalculatorController(models);
+        //Hier können wir die View austauschen
+        AlternativeHeatView alternativeView = new AlternativeHeatView(stage, controller);
         HeatcalculatorView view = new HeatcalculatorView(stage, controller);
+        //Hier einfach statt view die alternativeView setzen
+        //controller.setView(alternativeView);
         controller.setView(view);
         controller.startView();
     }
